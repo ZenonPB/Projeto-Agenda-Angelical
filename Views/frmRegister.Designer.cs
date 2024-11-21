@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Agenda_Angelical.Views
 {
-    partial class frmBack
+    partial class frmRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -34,9 +34,9 @@
             lblAnjoGuarda = new Label();
             tbxPassword = new TextBox();
             tbxPhone = new TextBox();
-            textBox1 = new TextBox();
+            tbxConfirm = new TextBox();
             btnRegister = new Button();
-            button1 = new Button();
+            btnBack = new Button();
             gbxUserInfos = new GroupBox();
             gbxUserInfos.SuspendLayout();
             SuspendLayout();
@@ -59,6 +59,7 @@
             tbxUser.PlaceholderText = "Nome";
             tbxUser.Size = new Size(373, 23);
             tbxUser.TabIndex = 3;
+            tbxUser.TextChanged += tbxUser_TextChanged;
             // 
             // cbxAngels
             // 
@@ -68,7 +69,7 @@
             cbxAngels.Name = "cbxAngels";
             cbxAngels.Size = new Size(373, 23);
             cbxAngels.TabIndex = 4;
-            cbxAngels.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            cbxAngels.SelectedIndexChanged += cbxAngels_SelectedIndexChanged;
             // 
             // lblAnjoGuarda
             // 
@@ -90,6 +91,7 @@
             tbxPassword.Size = new Size(373, 23);
             tbxPassword.TabIndex = 7;
             tbxPassword.UseSystemPasswordChar = true;
+            tbxPassword.TextChanged += tbxPassword_TextChanged;
             // 
             // tbxPhone
             // 
@@ -98,20 +100,23 @@
             tbxPhone.PlaceholderText = "Telefone";
             tbxPhone.Size = new Size(373, 23);
             tbxPhone.TabIndex = 8;
+            tbxPhone.TextChanged += tbxPhone_TextChanged;
             // 
-            // textBox1
+            // tbxConfirm
             // 
-            textBox1.Location = new Point(6, 103);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.PlaceholderText = "Confirme a Senha";
-            textBox1.Size = new Size(373, 23);
-            textBox1.TabIndex = 9;
-            textBox1.UseSystemPasswordChar = true;
+            tbxConfirm.Location = new Point(6, 103);
+            tbxConfirm.Name = "tbxConfirm";
+            tbxConfirm.PasswordChar = '*';
+            tbxConfirm.PlaceholderText = "Confirme a Senha";
+            tbxConfirm.Size = new Size(373, 23);
+            tbxConfirm.TabIndex = 9;
+            tbxConfirm.UseSystemPasswordChar = true;
+            tbxConfirm.TextChanged += tbxConfirm_TextChanged;
             // 
             // btnRegister
             // 
             btnRegister.BackColor = Color.FromArgb(255, 255, 192);
+            btnRegister.Enabled = false;
             btnRegister.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ControlText;
             btnRegister.Location = new Point(77, 257);
@@ -120,25 +125,27 @@
             btnRegister.TabIndex = 10;
             btnRegister.Text = "Fazer a Passagem";
             btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // button1
+            // btnBack
             // 
-            button1.BackColor = Color.FromArgb(255, 192, 192);
-            button1.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(267, 256);
-            button1.Name = "button1";
-            button1.Size = new Size(183, 43);
-            button1.TabIndex = 11;
-            button1.Text = "Voltar";
-            button1.UseVisualStyleBackColor = false;
+            btnBack.BackColor = Color.FromArgb(255, 192, 192);
+            btnBack.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = SystemColors.ControlText;
+            btnBack.Location = new Point(267, 256);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(183, 43);
+            btnBack.TabIndex = 11;
+            btnBack.Text = "Voltar";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // gbxUserInfos
             // 
             gbxUserInfos.Controls.Add(tbxUser);
             gbxUserInfos.Controls.Add(tbxPhone);
             gbxUserInfos.Controls.Add(tbxPassword);
-            gbxUserInfos.Controls.Add(textBox1);
+            gbxUserInfos.Controls.Add(tbxConfirm);
             gbxUserInfos.Location = new Point(71, 113);
             gbxUserInfos.Name = "gbxUserInfos";
             gbxUserInfos.Size = new Size(384, 137);
@@ -146,20 +153,21 @@
             gbxUserInfos.TabStop = false;
             gbxUserInfos.Text = "Informações";
             // 
-            // frmBack
+            // frmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(499, 312);
             Controls.Add(gbxUserInfos);
-            Controls.Add(button1);
+            Controls.Add(btnBack);
             Controls.Add(btnRegister);
             Controls.Add(lblAnjoGuarda);
             Controls.Add(cbxAngels);
             Controls.Add(lblJulgamentoFinal);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "frmBack";
+            MaximizeBox = false;
+            Name = "frmRegister";
             Text = "Registar-se";
             gbxUserInfos.ResumeLayout(false);
             gbxUserInfos.PerformLayout();
@@ -175,9 +183,9 @@
         private Label lblAnjoGuarda;
         private TextBox tbxPassword;
         private TextBox tbxPhone;
-        private TextBox textBox1;
+        private TextBox tbxConfirm;
         private Button btnRegister;
-        private Button button1;
+        private Button btnBack;
         private GroupBox gbxUserInfos;
     }
 }

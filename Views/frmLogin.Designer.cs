@@ -47,7 +47,6 @@
             lblBemVindo.Size = new Size(212, 38);
             lblBemVindo.TabIndex = 0;
             lblBemVindo.Text = "Bem Vindo ao";
-            lblBemVindo.Click += this.label1_Click;
             // 
             // lblParaiso
             // 
@@ -59,7 +58,6 @@
             lblParaiso.Size = new Size(322, 82);
             lblParaiso.TabIndex = 1;
             lblParaiso.Text = "PARAÍSO";
-            lblParaiso.Click += this.lblParaiso_Click;
             // 
             // tbxUser
             // 
@@ -113,6 +111,7 @@
             btnRegister.TabIndex = 6;
             btnRegister.Text = "Julgamento Final";
             btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
             // frmLogin
             // 
@@ -131,6 +130,7 @@
             MaximizeBox = false;
             Name = "frmLogin";
             Text = "Autenticar-se";
+            FormClosed += frmLogin_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
