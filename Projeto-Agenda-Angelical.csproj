@@ -11,8 +11,9 @@
 
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="estruturaDB\" />
+    <Folder Include="EstructureDB\" />
     <Folder Include="Data\" />
+    <Folder Include="GlobalVariable\" />
   </ItemGroup>
 
   <ItemGroup>

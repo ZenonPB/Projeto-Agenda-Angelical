@@ -104,7 +104,7 @@
             // 
             // btnRegister
             // 
-            btnRegister.BackColor = Color.FromArgb(255, 255, 192);
+            btnRegister.BackColor = Color.FromArgb(255, 224, 192);
             btnRegister.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = Color.Black;
             btnRegister.Location = new Point(197, 299);
