@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using MySql.Data.MySqlClient;
+using Projeto_Agenda_Angelical.GlobalVariable;
 
 namespace Projeto_Agenda_Angelical.Views
 {
@@ -45,6 +48,24 @@ namespace Projeto_Agenda_Angelical.Views
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
+            bool cadastro = new User().CreateUser(cbxPecado.Text, tbxName.Text, tbxUsuario.Text, tbxPassword.Text, tbxPhone.Text);
+
+            if (cadastro)
+            {
+                this.Close();
+
+                // Sucesso
+
+                MessageBox.Show("Você agora está cadastrado no livro do Diabo!", "Bem-Vindo ao Érebro");
+
+            }
+
+            else
+            {
+                // Erro
+
+                MessageBox.Show("Ocorreu um erro ao cadastrar. Tente novamente!", "Problemas Técnicos");
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

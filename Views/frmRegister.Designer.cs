@@ -46,7 +46,7 @@
             lblJulgamentoFinal.AutoSize = true;
             lblJulgamentoFinal.Font = new Font("Yu Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblJulgamentoFinal.ForeColor = Color.FromArgb(255, 255, 192);
-            lblJulgamentoFinal.Location = new Point(71, 9);
+            lblJulgamentoFinal.Location = new Point(62, 9);
             lblJulgamentoFinal.Name = "lblJulgamentoFinal";
             lblJulgamentoFinal.Size = new Size(384, 45);
             lblJulgamentoFinal.TabIndex = 2;
@@ -64,8 +64,8 @@
             // cbxAngels
             // 
             cbxAngels.FormattingEnabled = true;
-            cbxAngels.Items.AddRange(new object[] { "Anjo Gabriel", "Anjo Miguel", "Anjo Rafael", "Anjo Daniel" });
-            cbxAngels.Location = new Point(77, 84);
+            cbxAngels.Items.AddRange(new object[] { "Anjo Gabriel", "Anjo Miguel", "Anjo Rafael", "Anjo Daniel", "Anjo Mateus", "Anjo Belzebu", "Anjo Metatron", "ANUNAKIS" });
+            cbxAngels.Location = new Point(68, 84);
             cbxAngels.Name = "cbxAngels";
             cbxAngels.Size = new Size(373, 23);
             cbxAngels.TabIndex = 4;
@@ -76,7 +76,7 @@
             lblAnjoGuarda.AutoSize = true;
             lblAnjoGuarda.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAnjoGuarda.ForeColor = Color.White;
-            lblAnjoGuarda.Location = new Point(121, 54);
+            lblAnjoGuarda.Location = new Point(112, 54);
             lblAnjoGuarda.Name = "lblAnjoGuarda";
             lblAnjoGuarda.Size = new Size(287, 25);
             lblAnjoGuarda.TabIndex = 6;
@@ -119,7 +119,7 @@
             btnRegister.Enabled = false;
             btnRegister.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ControlText;
-            btnRegister.Location = new Point(77, 257);
+            btnRegister.Location = new Point(68, 257);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(183, 43);
             btnRegister.TabIndex = 10;
@@ -132,7 +132,7 @@
             btnBack.BackColor = Color.FromArgb(255, 192, 192);
             btnBack.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = SystemColors.ControlText;
-            btnBack.Location = new Point(267, 256);
+            btnBack.Location = new Point(258, 256);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(183, 43);
             btnBack.TabIndex = 11;
@@ -146,7 +146,7 @@
             gbxUserInfos.Controls.Add(tbxPhone);
             gbxUserInfos.Controls.Add(tbxPassword);
             gbxUserInfos.Controls.Add(tbxConfirm);
-            gbxUserInfos.Location = new Point(71, 113);
+            gbxUserInfos.Location = new Point(62, 113);
             gbxUserInfos.Name = "gbxUserInfos";
             gbxUserInfos.Size = new Size(384, 137);
             gbxUserInfos.TabIndex = 12;
