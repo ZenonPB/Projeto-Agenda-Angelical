@@ -28,79 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            arquivoToolStripMenuItem = new ToolStripMenuItem();
-            adicionarToolStripMenuItem = new ToolStripMenuItem();
-            categoriasToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem = new ToolStripMenuItem();
-            categoriasToolStripMenuItem1 = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            lblBemVindo = new Label();
+            lblUserName = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // menuStrip1
+            // lblBemVindo
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            lblBemVindo.AutoSize = true;
+            lblBemVindo.Font = new Font("Yu Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBemVindo.ForeColor = Color.White;
+            lblBemVindo.Location = new Point(149, 9);
+            lblBemVindo.Name = "lblBemVindo";
+            lblBemVindo.Size = new Size(317, 42);
+            lblBemVindo.TabIndex = 0;
+            lblBemVindo.Text = "Seja bem-vindo(a),";
             // 
-            // arquivoToolStripMenuItem
+            // lblUserName
             // 
-            arquivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem });
-            arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            arquivoToolStripMenuItem.Size = new Size(61, 20);
-            arquivoToolStripMenuItem.Text = "&Arquivo";
+            lblUserName.AutoSize = true;
+            lblUserName.Font = new Font("Yu Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUserName.ForeColor = Color.FromArgb(255, 255, 192);
+            lblUserName.Location = new Point(177, 41);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(252, 61);
+            lblUserName.TabIndex = 1;
+            lblUserName.Text = "USUÁRIO";
             // 
-            // adicionarToolStripMenuItem
+            // dataGridView1
             // 
-            adicionarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
-            adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            adicionarToolStripMenuItem.Size = new Size(180, 22);
-            adicionarToolStripMenuItem.Text = "Adicionar";
-            // 
-            // categoriasToolStripMenuItem
-            // 
-            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
-            categoriasToolStripMenuItem.Text = "Categorias";
-            // 
-            // editarToolStripMenuItem
-            // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem1 });
-            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(49, 20);
-            editarToolStripMenuItem.Text = "&Editar";
-            // 
-            // categoriasToolStripMenuItem1
-            // 
-            categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
-            categoriasToolStripMenuItem1.Size = new Size(180, 22);
-            categoriasToolStripMenuItem1.Text = "Categorias";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(20, 98);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(151, 199);
+            dataGridView1.TabIndex = 2;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            BackColor = Color.SkyBlue;
+            ClientSize = new Size(603, 356);
+            Controls.Add(dataGridView1);
+            Controls.Add(lblUserName);
+            Controls.Add(lblBemVindo);
             Name = "frmPrincipal";
             Text = "Menu Principal";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            Load += frmPrincipal_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem arquivoToolStripMenuItem;
-        private ToolStripMenuItem adicionarToolStripMenuItem;
-        private ToolStripMenuItem categoriasToolStripMenuItem;
-        private ToolStripMenuItem editarToolStripMenuItem;
-        private ToolStripMenuItem categoriasToolStripMenuItem1;
+        private Label lblBemVindo;
+        private Label lblUserName;
+        private DataGridView dataGridView1;
     }
 }

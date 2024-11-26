@@ -16,5 +16,10 @@ namespace Projeto_Agenda_Angelical.Views
         {
             InitializeComponent();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

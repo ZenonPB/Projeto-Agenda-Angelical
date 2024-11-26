@@ -46,7 +46,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== CRIAR USUARIO NA TABELA DA DB =======================================
-        public bool CreateUser(string pecado, string nome, string usuario, string senha, string telefone)
+        public bool CreateUser(string anjo, string nome, string usuario, string senha, string telefone)
         {
             MySqlConnection conexao = ConexaoDB.Connection();
 
@@ -55,11 +55,11 @@ namespace Projeto_Agenda_Angelical.Controller
                 conexao.Open();
 
                 MySqlCommand cmdInsertInto = new MySqlCommand(
-                    "INSERT INTO tb_usuarios VALUES (@pecado, @nome, @usuario, @telefone, @senha);",
+                    "INSERT INTO tb_usuarios VALUES (@anjo, @nome, @usuario, @telefone, @senha);",
                     conexao
                 );
 
-                cmdInsertInto.Parameters.AddWithValue("@pecado", pecado);
+                cmdInsertInto.Parameters.AddWithValue("@anjo", anjo);
 
                 cmdInsertInto.Parameters.AddWithValue("@nome", nome);
 
@@ -281,11 +281,25 @@ namespace Projeto_Agenda_Angelical.Controller
                 cmdVerificacao.Parameters.AddWithValue("@usuario", usuario);
 
                 cmdVerificacao.Parameters.AddWithValue("@senha", senha);
+                
+                MySqlDataReader resultado = cmdVerificacao.ExecuteReader();
 
-                // O comando retornará algum valor (ExecuteReader)
-                bool returnValue = cmdVerificacao.ExecuteReader().Read();
+                if (resultado.Read())
+                {
+                    // preencher a user session com as infos do usuario
+                    UserSession.Usuario = resultado.GetString("usuario");
+                    UserSession.Nome = resultado.GetString("nome");
+                    UserSession.Senha = resultado.GetString("senha");
 
-                return returnValue;
+                    conexao.Close();
+                    return true;
+                }
+                else
+                {
+                    conexao.Close();
+                    return false;
+                }
+
             }
 
             catch (Exception)

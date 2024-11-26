@@ -38,6 +38,7 @@
             btnRegister = new Button();
             btnBack = new Button();
             gbxUserInfos = new GroupBox();
+            tbxName = new TextBox();
             gbxUserInfos.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,9 +55,9 @@
             // 
             // tbxUser
             // 
-            tbxUser.Location = new Point(6, 16);
+            tbxUser.Location = new Point(6, 44);
             tbxUser.Name = "tbxUser";
-            tbxUser.PlaceholderText = "Nome";
+            tbxUser.PlaceholderText = "Usuário";
             tbxUser.Size = new Size(373, 23);
             tbxUser.TabIndex = 3;
             tbxUser.TextChanged += tbxUser_TextChanged;
@@ -65,7 +66,7 @@
             // 
             cbxAngels.FormattingEnabled = true;
             cbxAngels.Items.AddRange(new object[] { "Anjo Gabriel", "Anjo Miguel", "Anjo Rafael", "Anjo Daniel", "Anjo Mateus", "Anjo Belzebu", "Anjo Metatron", "ANUNAKIS" });
-            cbxAngels.Location = new Point(68, 84);
+            cbxAngels.Location = new Point(68, 70);
             cbxAngels.Name = "cbxAngels";
             cbxAngels.Size = new Size(373, 23);
             cbxAngels.TabIndex = 4;
@@ -76,7 +77,7 @@
             lblAnjoGuarda.AutoSize = true;
             lblAnjoGuarda.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAnjoGuarda.ForeColor = Color.White;
-            lblAnjoGuarda.Location = new Point(112, 54);
+            lblAnjoGuarda.Location = new Point(112, 45);
             lblAnjoGuarda.Name = "lblAnjoGuarda";
             lblAnjoGuarda.Size = new Size(287, 25);
             lblAnjoGuarda.TabIndex = 6;
@@ -84,7 +85,7 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(6, 74);
+            tbxPassword.Location = new Point(6, 102);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PasswordChar = '*';
             tbxPassword.PlaceholderText = "Senha";
@@ -95,7 +96,7 @@
             // 
             // tbxPhone
             // 
-            tbxPhone.Location = new Point(6, 45);
+            tbxPhone.Location = new Point(6, 73);
             tbxPhone.Name = "tbxPhone";
             tbxPhone.PlaceholderText = "Telefone";
             tbxPhone.Size = new Size(373, 23);
@@ -104,7 +105,7 @@
             // 
             // tbxConfirm
             // 
-            tbxConfirm.Location = new Point(6, 103);
+            tbxConfirm.Location = new Point(6, 131);
             tbxConfirm.Name = "tbxConfirm";
             tbxConfirm.PasswordChar = '*';
             tbxConfirm.PlaceholderText = "Confirme a Senha";
@@ -119,7 +120,7 @@
             btnRegister.Enabled = false;
             btnRegister.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ControlText;
-            btnRegister.Location = new Point(68, 257);
+            btnRegister.Location = new Point(68, 259);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(183, 43);
             btnRegister.TabIndex = 10;
@@ -132,7 +133,7 @@
             btnBack.BackColor = Color.FromArgb(255, 192, 192);
             btnBack.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = SystemColors.ControlText;
-            btnBack.Location = new Point(258, 256);
+            btnBack.Location = new Point(258, 259);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(183, 43);
             btnBack.TabIndex = 11;
@@ -142,16 +143,25 @@
             // 
             // gbxUserInfos
             // 
+            gbxUserInfos.Controls.Add(tbxName);
             gbxUserInfos.Controls.Add(tbxUser);
             gbxUserInfos.Controls.Add(tbxPhone);
             gbxUserInfos.Controls.Add(tbxPassword);
             gbxUserInfos.Controls.Add(tbxConfirm);
-            gbxUserInfos.Location = new Point(62, 113);
+            gbxUserInfos.Location = new Point(62, 94);
             gbxUserInfos.Name = "gbxUserInfos";
-            gbxUserInfos.Size = new Size(384, 137);
+            gbxUserInfos.Size = new Size(384, 163);
             gbxUserInfos.TabIndex = 12;
             gbxUserInfos.TabStop = false;
             gbxUserInfos.Text = "Informações";
+            // 
+            // tbxName
+            // 
+            tbxName.Location = new Point(5, 16);
+            tbxName.Name = "tbxName";
+            tbxName.PlaceholderText = "Nome";
+            tbxName.Size = new Size(373, 23);
+            tbxName.TabIndex = 10;
             // 
             // frmRegister
             // 
@@ -187,5 +197,6 @@
         private Button btnRegister;
         private Button btnBack;
         private GroupBox gbxUserInfos;
+        private TextBox tbxName;
     }
 }
