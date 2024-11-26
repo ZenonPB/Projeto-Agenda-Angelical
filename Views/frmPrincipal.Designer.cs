@@ -322,6 +322,7 @@
             MaximizeBox = false;
             Name = "frmPrincipal";
             Text = "Menu Principal";
+            FormClosed += frmPrincipal_FormClosed;
             Load += frmPrincipal_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCat).EndInit();
             gbxSecurity.ResumeLayout(false);

@@ -32,5 +32,10 @@ namespace Projeto_Agenda_Angelical.Views
             lblTelefone.Text = $"{UserSession.Telefone}";
             lblAnjo.Text = $"{UserSession.AnjoGuarda}";
         }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
