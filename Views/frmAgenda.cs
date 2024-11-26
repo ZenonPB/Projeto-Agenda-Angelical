@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Agenda_Angelical.Views
 {
-    public partial class frmAddCat : Form
+    public partial class frmAgenda : Form
     {
-        public frmAddCat()
+        public frmAgenda()
         {
             InitializeComponent();
         }

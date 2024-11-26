@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 using Projeto_Agenda_Angelical.GlobalVariable;
+using Projeto_Agenda_Angelical.Controller;
 
 namespace Projeto_Agenda_Angelical.Views
 {
@@ -25,6 +26,7 @@ namespace Projeto_Agenda_Angelical.Views
         private void enableRegister()
         {
             bool isValid = false;
+
 
             if (cbxAngels.SelectedIndex == -1 || tbxUser.Text == "" || tbxPhone.Text == "" || tbxPassword.TextLength < 1 || tbxConfirm.Text != tbxPassword.Text)
             {
@@ -48,7 +50,15 @@ namespace Projeto_Agenda_Angelical.Views
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
-            bool cadastro = new User().CreateUser(cbxPecado.Text, tbxName.Text, tbxUsuario.Text, tbxPassword.Text, tbxPhone.Text);
+            UserController userController = new UserController();
+
+            string anjo = cbxAngels.Text;
+            string nome = tbxName.Text;
+            string usuario = tbxUser.Text;
+            string senha = tbxPassword.Text;
+            string telefone = tbxPhone.Text;
+
+            bool cadastro = userController.CreateUser(anjo, nome, usuario, senha, telefone);
 
             if (cadastro)
             {
@@ -56,7 +66,7 @@ namespace Projeto_Agenda_Angelical.Views
 
                 // Sucesso
 
-                MessageBox.Show("Você agora está cadastrado no livro do Diabo!", "Bem-Vindo ao Érebro");
+                MessageBox.Show("Você agora está cadastrado no Paraíso!", "Bem-Vindo ao Céu");
 
             }
 

@@ -35,6 +35,10 @@
             btnLogin = new Button();
             lblRegister = new Label();
             btnRegister = new Button();
+            imgNuvem = new PictureBox();
+            imgNuvem2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)imgNuvem).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgNuvem2).BeginInit();
             SuspendLayout();
             // 
             // lblBemVindo
@@ -63,35 +67,41 @@
             // 
             tbxUser.Location = new Point(111, 156);
             tbxUser.Name = "tbxUser";
-            tbxUser.PlaceholderText = "Nome do Anjo";
+            tbxUser.PlaceholderText = "Usuário";
             tbxUser.Size = new Size(350, 23);
             tbxUser.TabIndex = 2;
+            tbxUser.TextChanged += tbxUser_TextChanged;
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(111, 194);
+            tbxPassword.Location = new Point(111, 190);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PasswordChar = '*';
             tbxPassword.PlaceholderText = "Senha";
             tbxPassword.Size = new Size(350, 23);
             tbxPassword.TabIndex = 3;
             tbxPassword.UseSystemPasswordChar = true;
+            tbxPassword.TextChanged += tbxUser_TextChanged;
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(255, 255, 192);
+            btnLogin.BackColor = Color.White;
+            btnLogin.Enabled = false;
+            btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.ForeColor = Color.Black;
-            btnLogin.Location = new Point(197, 223);
+            btnLogin.ForeColor = Color.SkyBlue;
+            btnLogin.Location = new Point(197, 222);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(177, 45);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Adentrar o Céu";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lblRegister
             // 
             lblRegister.AutoSize = true;
+            lblRegister.BackColor = Color.Transparent;
             lblRegister.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRegister.ForeColor = Color.White;
             lblRegister.Location = new Point(165, 271);
@@ -102,16 +112,39 @@
             // 
             // btnRegister
             // 
-            btnRegister.BackColor = Color.FromArgb(255, 224, 192);
+            btnRegister.BackColor = Color.SkyBlue;
+            btnRegister.FlatStyle = FlatStyle.Flat;
             btnRegister.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.ForeColor = Color.Black;
-            btnRegister.Location = new Point(197, 299);
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(182, 299);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(177, 45);
+            btnRegister.Size = new Size(206, 45);
             btnRegister.TabIndex = 6;
             btnRegister.Text = "Julgamento Final";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
+            // 
+            // imgNuvem
+            // 
+            imgNuvem.BackColor = Color.Transparent;
+            imgNuvem.Image = Properties.Resources.nuvemzinha;
+            imgNuvem.Location = new Point(-226, 169);
+            imgNuvem.Name = "imgNuvem";
+            imgNuvem.Size = new Size(483, 280);
+            imgNuvem.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNuvem.TabIndex = 7;
+            imgNuvem.TabStop = false;
+            // 
+            // imgNuvem2
+            // 
+            imgNuvem2.BackColor = Color.Transparent;
+            imgNuvem2.Image = Properties.Resources.nuvemzinha;
+            imgNuvem2.Location = new Point(311, 169);
+            imgNuvem2.Name = "imgNuvem2";
+            imgNuvem2.Size = new Size(483, 280);
+            imgNuvem2.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNuvem2.TabIndex = 8;
+            imgNuvem2.TabStop = false;
             // 
             // frmLogin
             // 
@@ -126,11 +159,15 @@
             Controls.Add(tbxUser);
             Controls.Add(lblParaiso);
             Controls.Add(lblBemVindo);
+            Controls.Add(imgNuvem);
+            Controls.Add(imgNuvem2);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "frmLogin";
             Text = "Autenticar-se";
             FormClosed += frmLogin_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)imgNuvem).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgNuvem2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -144,5 +181,7 @@
         private Button btnLogin;
         private Label lblRegister;
         private Button btnRegister;
+        private PictureBox imgNuvem;
+        private PictureBox imgNuvem2;
     }
 }

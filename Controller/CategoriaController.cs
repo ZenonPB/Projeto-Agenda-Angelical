@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Projeto_Agenda_Angelical.Data;
 using Projeto_Agenda_Angelical.GlobalVariable;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,9 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== CRIA A CATEGORIA E COLOCA NA TABELA =======================================
         public bool CreateCategoria(string categoria)
         {
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 
             conexao.Open();
-
             try
             {
                 MySqlCommand cmdInsertInto = new MySqlCommand(
@@ -60,7 +60,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DELETA A CATEGORIA DA TABELA =======================================
         public bool DeleteCategoria(string idCategoria)
         {
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 
             conexao.Open();
 
@@ -105,7 +105,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DANDO UPDATE NO NOME DA CATEGORIA =======================================
         public bool RenameCategoria(string idCategoria, string novoNome)
         {
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 
             conexao.Open();
 
@@ -149,11 +149,11 @@ namespace Projeto_Agenda_Angelical.Controller
             }
         }
 
-        // MUDAR DPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSSDPSSSSSSSSSSSSSS
+        // ===================================== TABELA CATEGORIA =======================================
         public DataTable GetCategorias()
         {
 
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 
             conexao.Open();
 
