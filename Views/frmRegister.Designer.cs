@@ -38,13 +38,17 @@
             btnRegister = new Button();
             btnBack = new Button();
             gbxUserInfos = new GroupBox();
-            tbxName = new TextBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             gbxUserInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblJulgamentoFinal
             // 
             lblJulgamentoFinal.AutoSize = true;
+            lblJulgamentoFinal.BackColor = Color.Transparent;
             lblJulgamentoFinal.Font = new Font("Yu Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblJulgamentoFinal.ForeColor = Color.FromArgb(255, 255, 192);
             lblJulgamentoFinal.Location = new Point(62, 9);
@@ -55,7 +59,7 @@
             // 
             // tbxUser
             // 
-            tbxUser.Location = new Point(6, 44);
+            tbxUser.Location = new Point(6, 20);
             tbxUser.Name = "tbxUser";
             tbxUser.PlaceholderText = "Usuário";
             tbxUser.Size = new Size(373, 23);
@@ -75,6 +79,7 @@
             // lblAnjoGuarda
             // 
             lblAnjoGuarda.AutoSize = true;
+            lblAnjoGuarda.BackColor = Color.Transparent;
             lblAnjoGuarda.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAnjoGuarda.ForeColor = Color.White;
             lblAnjoGuarda.Location = new Point(112, 45);
@@ -85,7 +90,7 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Location = new Point(6, 102);
+            tbxPassword.Location = new Point(6, 78);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PasswordChar = '*';
             tbxPassword.PlaceholderText = "Senha";
@@ -96,7 +101,7 @@
             // 
             // tbxPhone
             // 
-            tbxPhone.Location = new Point(6, 73);
+            tbxPhone.Location = new Point(6, 49);
             tbxPhone.Name = "tbxPhone";
             tbxPhone.PlaceholderText = "Telefone";
             tbxPhone.Size = new Size(373, 23);
@@ -105,7 +110,7 @@
             // 
             // tbxConfirm
             // 
-            tbxConfirm.Location = new Point(6, 131);
+            tbxConfirm.Location = new Point(6, 107);
             tbxConfirm.Name = "tbxConfirm";
             tbxConfirm.PasswordChar = '*';
             tbxConfirm.PlaceholderText = "Confirme a Senha";
@@ -120,7 +125,7 @@
             btnRegister.Enabled = false;
             btnRegister.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegister.ForeColor = SystemColors.ControlText;
-            btnRegister.Location = new Point(68, 259);
+            btnRegister.Location = new Point(68, 247);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(183, 43);
             btnRegister.TabIndex = 10;
@@ -133,7 +138,7 @@
             btnBack.BackColor = Color.FromArgb(255, 192, 192);
             btnBack.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = SystemColors.ControlText;
-            btnBack.Location = new Point(258, 259);
+            btnBack.Location = new Point(258, 247);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(183, 43);
             btnBack.TabIndex = 11;
@@ -143,25 +148,37 @@
             // 
             // gbxUserInfos
             // 
-            gbxUserInfos.Controls.Add(tbxName);
+            gbxUserInfos.BackColor = Color.Transparent;
             gbxUserInfos.Controls.Add(tbxUser);
             gbxUserInfos.Controls.Add(tbxPhone);
             gbxUserInfos.Controls.Add(tbxPassword);
             gbxUserInfos.Controls.Add(tbxConfirm);
-            gbxUserInfos.Location = new Point(62, 94);
+            gbxUserInfos.Location = new Point(62, 99);
             gbxUserInfos.Name = "gbxUserInfos";
-            gbxUserInfos.Size = new Size(384, 163);
+            gbxUserInfos.Size = new Size(384, 142);
             gbxUserInfos.TabIndex = 12;
             gbxUserInfos.TabStop = false;
             gbxUserInfos.Text = "Informações";
             // 
-            // tbxName
+            // pictureBox1
             // 
-            tbxName.Location = new Point(5, 16);
-            tbxName.Name = "tbxName";
-            tbxName.PlaceholderText = "Nome";
-            tbxName.Size = new Size(373, 23);
-            tbxName.TabIndex = 10;
+            pictureBox1.Image = Properties.Resources.nuvemzinha;
+            pictureBox1.Location = new Point(248, -10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(540, 411);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.nuvemzinha;
+            pictureBox2.Location = new Point(-269, 177);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(535, 279);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
             // 
             // frmRegister
             // 
@@ -175,12 +192,16 @@
             Controls.Add(lblAnjoGuarda);
             Controls.Add(cbxAngels);
             Controls.Add(lblJulgamentoFinal);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "frmRegister";
             Text = "Registar-se";
             gbxUserInfos.ResumeLayout(false);
             gbxUserInfos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,6 +218,7 @@
         private Button btnRegister;
         private Button btnBack;
         private GroupBox gbxUserInfos;
-        private TextBox tbxName;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

@@ -49,8 +49,10 @@ namespace Projeto_Agenda_Angelical
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmRegister frmRegister = new frmRegister();
             frmRegister.ShowDialog();
+
         }
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)

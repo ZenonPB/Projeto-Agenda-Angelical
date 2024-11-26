@@ -53,12 +53,11 @@ namespace Projeto_Agenda_Angelical.Views
             UserController userController = new UserController();
 
             string anjo = cbxAngels.Text;
-            string nome = tbxName.Text;
             string usuario = tbxUser.Text;
             string senha = tbxPassword.Text;
             string telefone = tbxPhone.Text;
 
-            bool cadastro = userController.CreateUser(anjo, nome, usuario, senha, telefone);
+            bool cadastro = userController.CreateUser(anjo, usuario, senha, telefone);
 
             if (cadastro)
             {
