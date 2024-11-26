@@ -290,6 +290,8 @@ namespace Projeto_Agenda_Angelical.Controller
                     UserSession.Usuario = resultado.GetString("usuario");
                     UserSession.Nome = resultado.GetString("nome");
                     UserSession.Senha = resultado.GetString("senha");
+                    UserSession.Telefone = resultado.GetString("telefone");
+                    UserSession.AnjoGuarda = resultado.GetString("nome_anjo");
 
                     conexao.Close();
                     return true;
@@ -313,37 +315,5 @@ namespace Projeto_Agenda_Angelical.Controller
             }
         }
 
-        // MUDAR DPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSSDPSSSS
-        public DataTable GetUsers()
-        {
-            MySqlConnection conexao = ConexaoDB.Connection();
-
-            conexao.Open();
-
-            try
-            {
-                MySqlDataAdapter adpGetUsers = new MySqlDataAdapter(
-                    "SELECT tb_usuarios.usuario AS 'User' FROM tb_usuarios;",
-                    conexao
-                );
-
-                DataTable tabela = new DataTable();
-
-                adpGetUsers.Fill(tabela);
-
-                return tabela;
-            }
-
-            // Evitando Crash
-            catch (Exception)
-            {
-                return new DataTable();
-            }
-
-            finally
-            {
-                conexao.Close();
-            }
-        }
     }
 }

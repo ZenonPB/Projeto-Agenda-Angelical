@@ -12,6 +12,9 @@ namespace Projeto_Agenda_Angelical.GlobalVariable
         static private string _nome = null;
         static private string _senha = null;
         static private string _usuario = null;
+        static private string _telefone = null;
+        static private string _anjoGuarda = null;
+        static private MySqlConnection _conexao = null;
 
         static public string Usuario
         {
@@ -23,7 +26,7 @@ namespace Projeto_Agenda_Angelical.GlobalVariable
 
             set
             {
-                _usuario = value.ToUpper();
+                _usuario = value;
             }
 
         }
@@ -53,7 +56,29 @@ namespace Projeto_Agenda_Angelical.GlobalVariable
             }
         }
 
-        static private MySqlConnection _conexao = null;
+        static public string Telefone
+        {
+            get
+            {
+                return _telefone;
+            }
+            set
+            {
+                _telefone = value;
+            }
+        }
+
+        static public string AnjoGuarda
+        {
+            get
+            {
+                return _anjoGuarda;
+            }
+            set
+            {
+                _anjoGuarda = value;
+            }
+        }
 
         static public MySqlConnection Conexao
         {
