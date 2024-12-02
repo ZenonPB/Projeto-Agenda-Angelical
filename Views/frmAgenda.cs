@@ -25,7 +25,11 @@ namespace Projeto_Agenda_Angelical.Views
             DataTable tabela = contatoController.GetContatos();
             dgvContato.DataSource = tabela;
 
-            cbxCategoria.Items.Add
+            // preenchendo a combo box com as categorias criada pelo caba
+            CategoriaController categoriaController = new CategoriaController();
+            DataTable dataTable = categoriaController.GetCategorias();
+            cbxCategoria.DataSource = dataTable;
+            cbxCategoria.DisplayMember = "categoria";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

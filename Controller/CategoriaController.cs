@@ -38,14 +38,12 @@ namespace Projeto_Agenda_Angelical.Controller
                     return true;
                 }
 
-                // Erro
                 else
                 {
                     return false;
                 }
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
