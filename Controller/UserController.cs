@@ -46,7 +46,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== CRIAR USUARIO NA TABELA DA DB =======================================
-        public bool CreateUser(string anjo, string nome, string usuario, string senha, string telefone)
+        public bool CreateUser(string anjo, string usuario, string senha, string telefone)
         {
             MySqlConnection conexao = ConexaoDB.Connection();
 
@@ -55,13 +55,11 @@ namespace Projeto_Agenda_Angelical.Controller
                 conexao.Open();
 
                 MySqlCommand cmdInsertInto = new MySqlCommand(
-                    "INSERT INTO tb_usuarios VALUES (@anjo, @nome, @usuario, @telefone, @senha);",
+                    "INSERT INTO tb_usuarios VALUES (@anjo, @usuario, @telefone, @senha);",
                     conexao
                 );
 
                 cmdInsertInto.Parameters.AddWithValue("@anjo", anjo);
-
-                cmdInsertInto.Parameters.AddWithValue("@nome", nome);
 
                 cmdInsertInto.Parameters.AddWithValue("@usuario", usuario);
 
@@ -274,8 +272,7 @@ namespace Projeto_Agenda_Angelical.Controller
                 conexao.Open();
 
                 MySqlCommand cmdVerificacao = new MySqlCommand(
-                    "SELECT * FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;",
-                    conexao
+                    "SELECT usuario, nome, senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;", conexao
                 );
 
                 cmdVerificacao.Parameters.AddWithValue("@usuario", usuario);
