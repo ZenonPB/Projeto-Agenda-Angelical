@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
-            gdvContato = new DataGridView();
+            dgvContato = new DataGridView();
             gbxContactInfo = new GroupBox();
-            lblContactName = new Label();
-            tbxName = new TextBox();
+            button3 = new Button();
+            btnDelete = new Button();
+            btnAdd = new Button();
+            cbxCategoria = new ComboBox();
+            lblCategoria = new Label();
             textBox1 = new TextBox();
             lblPhone = new Label();
-            lblCategoria = new Label();
-            cbxCategoria = new ComboBox();
-            btnAdd = new Button();
-            btnDelete = new Button();
-            button3 = new Button();
-            ((System.ComponentModel.ISupportInitialize)gdvContato).BeginInit();
+            tbxName = new TextBox();
+            lblContactName = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvContato).BeginInit();
             gbxContactInfo.SuspendLayout();
             SuspendLayout();
             // 
-            // gdvContato
+            // dgvContato
             // 
-            gdvContato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gdvContato.Location = new Point(217, 12);
-            gdvContato.Name = "gdvContato";
-            gdvContato.Size = new Size(235, 426);
-            gdvContato.TabIndex = 0;
+            dgvContato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvContato.Location = new Point(217, 12);
+            dgvContato.Name = "dgvContato";
+            dgvContato.Size = new Size(235, 426);
+            dgvContato.TabIndex = 0;
             // 
             // gbxContactInfo
             // 
@@ -73,24 +73,62 @@
             gbxContactInfo.TabStop = false;
             gbxContactInfo.Text = "Gerenciar Contatos";
             // 
-            // lblContactName
+            // button3
             // 
-            lblContactName.AutoSize = true;
-            lblContactName.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblContactName.Location = new Point(5, 33);
-            lblContactName.Name = "lblContactName";
-            lblContactName.Size = new Size(104, 16);
-            lblContactName.TabIndex = 2;
-            lblContactName.Text = "Nome do Contato";
+            button3.BackColor = Color.White;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.SkyBlue;
+            button3.Location = new Point(6, 378);
+            button3.Name = "button3";
+            button3.Size = new Size(187, 39);
+            button3.TabIndex = 7;
+            button3.Text = "Alterar";
+            button3.UseVisualStyleBackColor = false;
             // 
-            // tbxName
+            // btnDelete
             // 
-            tbxName.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxName.Location = new Point(6, 52);
-            tbxName.Name = "tbxName";
-            tbxName.PlaceholderText = "Fulano Ciclano";
-            tbxName.Size = new Size(187, 27);
-            tbxName.TabIndex = 2;
+            btnDelete.BackColor = Color.FromArgb(255, 192, 192);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.Location = new Point(6, 322);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(187, 39);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "Remover";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.FromArgb(192, 255, 192);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(6, 265);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(187, 39);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Adicionar";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // cbxCategoria
+            // 
+            cbxCategoria.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbxCategoria.FormattingEnabled = true;
+            cbxCategoria.Location = new Point(6, 193);
+            cbxCategoria.Name = "cbxCategoria";
+            cbxCategoria.Size = new Size(187, 24);
+            cbxCategoria.TabIndex = 2;
+            // 
+            // lblCategoria
+            // 
+            lblCategoria.AutoSize = true;
+            lblCategoria.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCategoria.Location = new Point(5, 174);
+            lblCategoria.Name = "lblCategoria";
+            lblCategoria.Size = new Size(61, 16);
+            lblCategoria.TabIndex = 5;
+            lblCategoria.Text = "Categoria";
             // 
             // textBox1
             // 
@@ -110,61 +148,24 @@
             lblPhone.TabIndex = 4;
             lblPhone.Text = "Telefone";
             // 
-            // lblCategoria
+            // tbxName
             // 
-            lblCategoria.AutoSize = true;
-            lblCategoria.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCategoria.Location = new Point(5, 174);
-            lblCategoria.Name = "lblCategoria";
-            lblCategoria.Size = new Size(61, 16);
-            lblCategoria.TabIndex = 5;
-            lblCategoria.Text = "Categoria";
+            tbxName.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxName.Location = new Point(6, 52);
+            tbxName.Name = "tbxName";
+            tbxName.PlaceholderText = "Fulano Ciclano";
+            tbxName.Size = new Size(187, 27);
+            tbxName.TabIndex = 2;
             // 
-            // cbxCategoria
+            // lblContactName
             // 
-            cbxCategoria.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbxCategoria.FormattingEnabled = true;
-            cbxCategoria.Location = new Point(6, 193);
-            cbxCategoria.Name = "cbxCategoria";
-            cbxCategoria.Size = new Size(187, 24);
-            cbxCategoria.TabIndex = 2;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.FromArgb(192, 255, 192);
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(6, 265);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(187, 39);
-            btnAdd.TabIndex = 2;
-            btnAdd.Text = "Adicionar";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.FromArgb(255, 192, 192);
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(6, 322);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(187, 39);
-            btnDelete.TabIndex = 6;
-            btnDelete.Text = "Remover";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.White;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.SkyBlue;
-            button3.Location = new Point(6, 378);
-            button3.Name = "button3";
-            button3.Size = new Size(187, 39);
-            button3.TabIndex = 7;
-            button3.Text = "Alterar";
-            button3.UseVisualStyleBackColor = false;
+            lblContactName.AutoSize = true;
+            lblContactName.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblContactName.Location = new Point(5, 33);
+            lblContactName.Name = "lblContactName";
+            lblContactName.Size = new Size(104, 16);
+            lblContactName.TabIndex = 2;
+            lblContactName.Text = "Nome do Contato";
             // 
             // frmAgenda
             // 
@@ -173,12 +174,13 @@
             BackColor = Color.SkyBlue;
             ClientSize = new Size(464, 450);
             Controls.Add(gbxContactInfo);
-            Controls.Add(gdvContato);
+            Controls.Add(dgvContato);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmAgenda";
             Text = "Agenda Telefônica";
-            ((System.ComponentModel.ISupportInitialize)gdvContato).EndInit();
+            Load += frmAgenda_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvContato).EndInit();
             gbxContactInfo.ResumeLayout(false);
             gbxContactInfo.PerformLayout();
             ResumeLayout(false);
@@ -186,7 +188,7 @@
 
         #endregion
 
-        private DataGridView gdvContato;
+        private DataGridView dgvContato;
         private GroupBox gbxContactInfo;
         private Label lblContactName;
         private TextBox tbxName;

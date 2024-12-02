@@ -38,14 +38,12 @@ namespace Projeto_Agenda_Angelical.Controller
                     return true;
                 }
 
-                // Erro
                 else
                 {
                     return false;
                 }
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
@@ -58,7 +56,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== DELETA A CATEGORIA DA TABELA =======================================
-        public bool DeleteCategoria(string idCategoria)
+        public bool DeleteCategoria(int idCategoria)
         {
             MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 
@@ -77,20 +75,17 @@ namespace Projeto_Agenda_Angelical.Controller
 
                 rowsAffected = cmdDelete.ExecuteNonQuery();
 
-                // Sucesso, categoria excluida
                 if (rowsAffected > 0)
                 {
                     return true;
                 }
 
-                // Erro
                 else
                 {
                     return false;
                 }
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
@@ -103,7 +98,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== DANDO UPDATE NO NOME DA CATEGORIA =======================================
-        public bool RenameCategoria(string idCategoria, string novoNome)
+        public bool RenameCategoria(int idCategoria, string novoNome)
         {
             MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
 

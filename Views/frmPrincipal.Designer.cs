@@ -51,6 +51,7 @@
             lblNomeTitle = new Label();
             btnAgenda = new Button();
             lblCategorias = new Label();
+            tbxCatName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvCat).BeginInit();
             gbxSecurity.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -85,6 +86,7 @@
             dgvCat.Name = "dgvCat";
             dgvCat.Size = new Size(224, 246);
             dgvCat.TabIndex = 2;
+            dgvCat.CellClick += dgvCat_CellClick;
             // 
             // btnDelete
             // 
@@ -92,12 +94,13 @@
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(250, 236);
+            btnDelete.Location = new Point(250, 271);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(144, 40);
+            btnDelete.Size = new Size(144, 29);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Apagar";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -105,12 +108,13 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(250, 145);
+            btnAdd.Location = new Point(250, 179);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(144, 40);
+            btnAdd.Size = new Size(144, 29);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "Adicionar";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -118,12 +122,13 @@
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = Color.White;
-            btnEdit.Location = new Point(250, 190);
+            btnEdit.Location = new Point(250, 225);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(144, 40);
+            btnEdit.Size = new Size(144, 29);
             btnEdit.TabIndex = 5;
             btnEdit.Text = "Editar";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnRefresh
             // 
@@ -131,12 +136,13 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Yu Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRefresh.ForeColor = SystemColors.ActiveCaptionText;
-            btnRefresh.Location = new Point(250, 99);
+            btnRefresh.Location = new Point(250, 134);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(144, 40);
+            btnRefresh.Size = new Size(144, 29);
             btnRefresh.TabIndex = 6;
-            btnRefresh.Text = "Atualizar";
+            btnRefresh.Text = "Atualizar tabela";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // gbxSecurity
             // 
@@ -177,6 +183,7 @@
             btnNewPass.TabIndex = 8;
             btnNewPass.Text = "Confirmar";
             btnNewPass.UseVisualStyleBackColor = true;
+            btnNewPass.Click += btnNewPass_Click;
             // 
             // groupBox1
             // 
@@ -282,12 +289,13 @@
             btnAgenda.FlatStyle = FlatStyle.Flat;
             btnAgenda.Font = new Font("Yu Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAgenda.ForeColor = SystemColors.ActiveCaptionText;
-            btnAgenda.Location = new Point(250, 304);
+            btnAgenda.Location = new Point(250, 316);
             btnAgenda.Name = "btnAgenda";
-            btnAgenda.Size = new Size(144, 40);
+            btnAgenda.Size = new Size(144, 29);
             btnAgenda.TabIndex = 10;
             btnAgenda.Text = "Acessar Agenda";
             btnAgenda.UseVisualStyleBackColor = false;
+            btnAgenda.Click += btnAgenda_Click;
             // 
             // lblCategorias
             // 
@@ -300,12 +308,21 @@
             lblCategorias.TabIndex = 11;
             lblCategorias.Text = "Categorias";
             // 
+            // tbxCatName
+            // 
+            tbxCatName.Location = new Point(250, 99);
+            tbxCatName.Name = "tbxCatName";
+            tbxCatName.PlaceholderText = "Nome da Categoria";
+            tbxCatName.Size = new Size(144, 23);
+            tbxCatName.TabIndex = 12;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(691, 356);
+            Controls.Add(tbxCatName);
             Controls.Add(lblCategorias);
             Controls.Add(btnAgenda);
             Controls.Add(groupBox1);
@@ -357,5 +374,6 @@
         private Label lblTelefone;
         private Button btnAgenda;
         private Label lblCategorias;
+        private TextBox tbxCatName;
     }
 }
