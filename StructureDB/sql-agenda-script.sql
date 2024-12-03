@@ -14,27 +14,6 @@ CREATE TABLE IF NOT EXISTS tb_usuarios (
     telefone VARCHAR(15),
     senha VARCHAR(20) NOT NULL
 );
-
--- contatos
-
-CREATE TABLE IF NOT EXISTS tb_contatos (
-    id_contato INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    telefone VARCHAR(50) NOT NULL,
-    categoria VARCHAR(100) NOT NULL,
-    usuario VARCHAR(50),
-
-    CONSTRAINT fk_usuarios_contatos
-    FOREIGN KEY (usuario)
-    REFERENCES tb_usuarios (usuario)
-    ON DELETE CASCADE
-
-    CONSTRAINT fk_categorias_contatos
-    FOREIGN KEY (categoria)
-    REFERENCES tb_categorias (categoria)
-);
-
-
 -- categorias
 
 CREATE TABLE IF NOT EXISTS tb_categorias (
@@ -48,6 +27,27 @@ CREATE TABLE IF NOT EXISTS tb_categorias (
     ON DELETE CASCADE
 );
 
+-- contatos
+
+CREATE TABLE IF NOT EXISTS tb_contatos (
+    id_contato INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    id_categoria INT,
+    endereco VARCHAR(50),
+    telefone VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50),
+
+    CONSTRAINT fk_usuarios_contatos
+    FOREIGN KEY (usuario)
+    REFERENCES tb_usuarios (usuario)
+    ON DELETE CASCADE,
+    
+	CONSTRAINT fk_categorias_contatos
+    FOREIGN KEY (id_categoria)
+    REFERENCES tb_categorias(id_categoria)
+    ON DELETE CASCADE
+    
+);
 
 -- logs
 
@@ -57,13 +57,6 @@ CREATE TABLE IF NOT EXISTS tb_logs (
     dt_alteracao DATETIME DEFAULT CURRENT_TIMESTAMP() NOT NULL,
     descricao VARCHAR(250) NOT NULL
 );
-
--- USUÁRIO ADMIN
-
-INSERT INTO tb_usuarios VALUES ("Ganância", "belzebu", "admin", "666-777", "admin123");
-
-CREATE USER 'admin'@'%' IDENTIFIED BY 'admin123';
-GRANT ALL PRIVILEGES ON db_agenda.* TO 'admin'@'%' WITH GRANT OPTION;
 
 -- /////////////////// TRIGGERS ///////////////////
 
@@ -143,3 +136,81 @@ END;
 $$
 
 DELIMITER ;
+
+
+-- trigger de contato
+DELIMITER $$
+
+CREATE TRIGGER tr_insert_contato
+    BEFORE
+    INSERT
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    SET NEW.usuario = SUBSTRING_INDEX(USER(), '@', 1);
+END;
+
+$$
+
+DELIMITER ;
+
+-- inserção da contato -> log
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_insert_contato
+    AFTER
+    INSERT
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("Novo contato: ", NEW.nome)
+    );
+END;
+
+$$
+
+DELIMITER ;
+
+-- deletar categoria -> log
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_delete_contato
+    AFTER
+    DELETE
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("Contato removido: ", OLD.nome, ". Usuário responsável: ", OLD.usuario)
+    );
+END;
+
+$$
+
+DELIMITER ;
+
+-- alterar categoria -> log
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_update_contato
+    AFTER
+    UPDATE
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("Categoria alterada de: ", OLD.nome, " para: ", NEW.nome)
+    );
+END;
+
+$$
+
+DELIMITER ;
+

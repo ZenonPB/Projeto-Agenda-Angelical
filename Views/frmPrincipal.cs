@@ -45,9 +45,9 @@ namespace Projeto_Agenda_Angelical.Views
         // Quando clica no botão "Abrir Agenda"
         private void btnAgenda_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmAgenda frmAgenda = new frmAgenda();
             frmAgenda.ShowDialog();
-            this.Hide();
         }
 
         // Atualiza a tabela sempre que clica no botão

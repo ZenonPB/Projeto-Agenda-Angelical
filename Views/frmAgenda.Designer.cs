@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
             dgvContato = new DataGridView();
             gbxContactInfo = new GroupBox();
-            button3 = new Button();
+            btnEditar = new Button();
             btnDelete = new Button();
             btnAdd = new Button();
             cbxCategoria = new ComboBox();
@@ -55,11 +55,12 @@
             dgvContato.Name = "dgvContato";
             dgvContato.Size = new Size(235, 426);
             dgvContato.TabIndex = 0;
+            dgvContato.CellClick += dgvContato_CellClick;
             // 
             // gbxContactInfo
             // 
             gbxContactInfo.BackColor = Color.SkyBlue;
-            gbxContactInfo.Controls.Add(button3);
+            gbxContactInfo.Controls.Add(btnEditar);
             gbxContactInfo.Controls.Add(btnDelete);
             gbxContactInfo.Controls.Add(btnAdd);
             gbxContactInfo.Controls.Add(cbxCategoria);
@@ -77,18 +78,19 @@
             gbxContactInfo.TabStop = false;
             gbxContactInfo.Text = "Gerenciar Contatos";
             // 
-            // button3
+            // btnEditar
             // 
-            button3.BackColor = Color.White;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.SkyBlue;
-            button3.Location = new Point(6, 378);
-            button3.Name = "button3";
-            button3.Size = new Size(187, 39);
-            button3.TabIndex = 7;
-            button3.Text = "Alterar";
-            button3.UseVisualStyleBackColor = false;
+            btnEditar.BackColor = Color.White;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.ForeColor = Color.SkyBlue;
+            btnEditar.Location = new Point(6, 378);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(187, 39);
+            btnEditar.TabIndex = 7;
+            btnEditar.Text = "Alterar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnDelete
             // 
@@ -101,13 +103,14 @@
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Remover";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.FromArgb(192, 255, 192);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Yu Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(6, 265);
+            btnAdd.Location = new Point(6, 268);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(187, 39);
             btnAdd.TabIndex = 2;
@@ -208,6 +211,7 @@
             MaximizeBox = false;
             Name = "frmAgenda";
             Text = "Agenda Telefônica";
+            FormClosed += frmAgenda_FormClosed;
             Load += frmAgenda_Load;
             ((System.ComponentModel.ISupportInitialize)dgvContato).EndInit();
             gbxContactInfo.ResumeLayout(false);
@@ -226,7 +230,7 @@
         private Label lblCategoria;
         private TextBox tbxPhone;
         private Label lblPhone;
-        private Button button3;
+        private Button btnEditar;
         private Button btnDelete;
         private Button btnAdd;
         private ComboBox cbxCategoria;

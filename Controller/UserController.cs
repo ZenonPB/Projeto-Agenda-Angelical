@@ -21,7 +21,9 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdCreateUser = new MySqlCommand($@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; GRANT SELECT, INSERT, UPDATE, DELETE ON db_agenda.tb_categorias TO '{usuario}'@'%';", conexao);
+                MySqlCommand cmdCreateUser = new MySqlCommand($@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; 
+                GRANT SELECT, INSERT, UPDATE, DELETE ON db_agenda.tb_categorias TO '{usuario}'@'%';
+                GRANT SELECT, INSERT, UPDATE, DELETE ON db_agenda.tb_contatos TO '{usuario}'@'%';", conexao);
                 cmdCreateUser.ExecuteNonQuery();
 
                 return true;

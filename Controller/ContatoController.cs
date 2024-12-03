@@ -22,7 +22,7 @@ namespace Projeto_Agenda_Angelical.Controller
             try
             {
                 MySqlCommand command = new MySqlCommand(
-                    "INSERT INTO tb_contatos (nome, telefone, categoria) VALUES (@nome_contato, @telefone, @id_categoria);", conexao);
+                    "INSERT INTO tb_contatos (nome, telefone, id_categoria) VALUES (@nome_contato, @telefone, @id_categoria);", conexao);
 
                 command.Parameters.AddWithValue("@nome_contato", nome_contato);
                 command.Parameters.AddWithValue("@telefone", telefone);
@@ -96,7 +96,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== DANDO UPDATE NO NOME DO CONTATO =======================================
-        public bool RenameContato(int idContato, string novoNome)
+        public bool EditContato(int idContato, string novoNome, string novoTelefone)
         {
             MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
@@ -104,16 +104,18 @@ namespace Projeto_Agenda_Angelical.Controller
 
             try
             {
-                MySqlCommand cmdUpdateNome = new MySqlCommand(
-                    "UPDATE tb_contatos SET nome = @novo_nome WHERE id_contato = @id_contato", conexao);
+                MySqlCommand cmdUpdateContato = new MySqlCommand(
+                    "UPDATE tb_contatos SET nome = @novo_nome, telefone = @novo_telefone WHERE id_contato = @id_contato", conexao);
 
-                cmdUpdateNome.Parameters.AddWithValue("@novo_nome", novoNome);
+                cmdUpdateContato.Parameters.AddWithValue("@novo_nome", novoNome);
 
-                cmdUpdateNome.Parameters.AddWithValue("@id_contato", idContato);
+                cmdUpdateContato.Parameters.AddWithValue("@id_contato", idContato);
+
+                cmdUpdateContato.Parameters.AddWithValue("@novo_telefone", novoTelefone);
 
                 int rowsAffected = 0;
 
-                rowsAffected = cmdUpdateNome.ExecuteNonQuery();
+                rowsAffected = cmdUpdateContato.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
                 {
