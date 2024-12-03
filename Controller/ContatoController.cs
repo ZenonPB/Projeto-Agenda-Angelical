@@ -16,7 +16,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== CRIA O CONTATO E COLOCA NA TABELA =======================================
         public bool CreateContato(string nome_contato, string telefone, string categoria)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
             try
@@ -57,7 +57,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DELETA O CONTATO DA TABELA =======================================
         public bool DeleteContato(int idContato)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 
@@ -98,7 +98,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DANDO UPDATE NO NOME DO CONTATO =======================================
         public bool RenameContato(int idContato, string novoNome)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 
@@ -142,7 +142,7 @@ namespace Projeto_Agenda_Angelical.Controller
         public DataTable GetContatos()
         {
 
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 

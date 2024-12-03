@@ -119,7 +119,9 @@
             Controls.Add(lblNova);
             Controls.Add(imgNuvem);
             Controls.Add(imgNuvem2);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "frmAddCat";
             Text = "Adicionar categorias";
             FormClosed += frmAddCat_FormClosed;

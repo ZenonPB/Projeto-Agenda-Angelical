@@ -39,7 +39,7 @@ namespace Projeto_Agenda_Angelical.GlobalVariable
             }
             set
             {
-                value = value.ToLower();
+                value = value;
                 _nome = value;
             }
         }

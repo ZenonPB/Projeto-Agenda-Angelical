@@ -58,25 +58,22 @@ namespace Projeto_Agenda_Angelical.Views
             string telefone = tbxPhone.Text;
             string senha = tbxPassword.Text;
 
-            bool cadastro = userController.CreateUser(anjo, nome, usuario, senha, telefone);
 
-            if (cadastro)
+
+            if (userController.CreateUser(anjo, nome, usuario, senha, telefone) == true)
             {
+
+                MessageBox.Show("Você agora está cadastrado no Paraíso!");
                 this.Close();
 
-                // Sucesso
-
-                MessageBox.Show("Você agora está cadastrado no Paraíso!", "Bem-Vindo ao Céu");
-
                 frmLogin frmLogin = new frmLogin();
-                frmLogin.ShowDialog();
+                frmLogin.Show();
             }
 
             else
             {
-                // Erro
 
-                MessageBox.Show("Ocorreu um erro ao cadastrar. Tente novamente!", "Problemas Técnicos");
+                MessageBox.Show("Ocorreu um erro ao cadastrar. Tente novamente!");
             }
         }
 

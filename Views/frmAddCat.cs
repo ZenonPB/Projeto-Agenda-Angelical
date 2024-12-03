@@ -24,14 +24,19 @@ namespace Projeto_Agenda_Angelical.Views
             CategoriaController controller = new CategoriaController();
             string catName = tbxCatName.Text;
 
-            controller.CreateCategoria(catName);
+            if(controller.CreateCategoria(catName) == true)
+            {
+                MessageBox.Show($"Categoria {catName} foi adicionada com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar adicionar a categoria! Tente novamente");
+            }
 
         }
 
         private void frmAddCat_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmPrincipal frmPrincipal = new frmPrincipal();
-            frmPrincipal.Show();
             this.Close();
         }
     }

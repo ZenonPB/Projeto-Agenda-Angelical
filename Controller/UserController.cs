@@ -21,7 +21,7 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdCreateUser = new MySqlCommand($@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; GRANT SELECT ON db_agenda.tb_categorias TO '{usuario}'@'%';", conexao);
+                MySqlCommand cmdCreateUser = new MySqlCommand($@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; GRANT SELECT, INSERT, UPDATE, DELETE ON db_agenda.tb_categorias TO '{usuario}'@'%';", conexao);
                 cmdCreateUser.ExecuteNonQuery();
 
                 return true;
@@ -161,7 +161,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== ALTERA A SENHA DO USUARIO NA DATABASE =======================================
         private bool ModifySenhaDB(string usuario, string novaSenha)
         {
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection();
 
             try
             {
@@ -188,7 +188,7 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== ALTERA A SENHA NA TABELA =======================================
         public bool ModifySenha(string usuario, string novaSenha)
         {
-            MySqlConnection conexao = UserSession.Conexao;
+            MySqlConnection conexao = ConexaoDB.Connection();
 
             try
             {

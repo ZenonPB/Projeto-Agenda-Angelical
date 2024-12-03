@@ -15,24 +15,20 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== CRIA A CATEGORIA E COLOCA NA TABELA =======================================
         public bool CreateCategoria(string categoria)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
             try
             {
-                MySqlCommand cmdInsertInto = new MySqlCommand(
-                    "INSERT INTO tb_categorias (categoria) VALUES (@nome_categoria);",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand(
+                    "INSERT INTO tb_categorias (categoria) VALUES (@nome_categoria);", conexao);
 
-                cmdInsertInto.Parameters.AddWithValue("@nome_categoria", categoria);
+                command.Parameters.AddWithValue("@nome_categoria", categoria);
 
                 int rowsAffected = 0;
 
-                // mostra em quantas linhas foi afetada
-                rowsAffected = cmdInsertInto.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
-                // ve se deu certo
                 if (rowsAffected > 0)
                 {
                     return true;
@@ -58,22 +54,20 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DELETA A CATEGORIA DA TABELA =======================================
         public bool DeleteCategoria(int idCategoria)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 
             try
             {
-                MySqlCommand cmdDelete = new MySqlCommand(
-                    "DELETE FROM tb_categorias WHERE tb_categorias.id_categoria = @id_categoria;",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand(
+                    "DELETE FROM tb_categorias WHERE tb_categorias.id_categoria = @id_categoria;", conexao);
 
-                cmdDelete.Parameters.AddWithValue("@id_categoria", idCategoria);
+                command.Parameters.AddWithValue("@id_categoria", idCategoria);
 
                 int rowsAffected = 0;
 
-                rowsAffected = cmdDelete.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
                 {
@@ -100,39 +94,34 @@ namespace Projeto_Agenda_Angelical.Controller
         // ===================================== DANDO UPDATE NO NOME DA CATEGORIA =======================================
         public bool RenameCategoria(int idCategoria, string novoNome)
         {
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 
             try
             {
-                MySqlCommand cmdUpdateNome = new MySqlCommand(
-                    "UPDATE tb_categorias.categoria = @novo_nome ON tb_categorias WHERE tb_categorias.id_categoria = @id_categoria",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand(
+                    "UPDATE tb_categorias SET categoria = @novo_nome WHERE id_categoria = @id_categoria",conexao);
 
-                cmdUpdateNome.Parameters.AddWithValue("@novo_nome", novoNome);
+                command.Parameters.AddWithValue("@novo_nome", novoNome);
 
-                cmdUpdateNome.Parameters.AddWithValue("@id_categoria", idCategoria);
+                command.Parameters.AddWithValue("@id_categoria", idCategoria);
 
                 int rowsAffected = 0;
 
-                rowsAffected = cmdUpdateNome.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
-                // Sucesso, nome da categoria alterado
                 if (rowsAffected > 0)
                 {
                     return true;
                 }
 
-                // Erro
                 else
                 {
                     return false;
                 }
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
@@ -148,7 +137,7 @@ namespace Projeto_Agenda_Angelical.Controller
         public DataTable GetCategorias()
         {
 
-            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Nome, UserSession.Senha);
+            MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
 

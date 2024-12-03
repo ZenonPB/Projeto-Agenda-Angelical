@@ -40,7 +40,7 @@
             txtNovaSenha = new Label();
             tbxNewPass = new TextBox();
             btnNewPass = new Button();
-            groupBox1 = new GroupBox();
+            gbxUserInfo = new GroupBox();
             lblAnjo = new Label();
             lblAnjoTitle = new Label();
             lblTelefone = new Label();
@@ -52,17 +52,22 @@
             btnAgenda = new Button();
             lblCategorias = new Label();
             tbxCatName = new TextBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvCat).BeginInit();
             gbxSecurity.SuspendLayout();
-            groupBox1.SuspendLayout();
+            gbxUserInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblBemVindo
             // 
             lblBemVindo.AutoSize = true;
+            lblBemVindo.BackColor = Color.Transparent;
             lblBemVindo.Font = new Font("Yu Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBemVindo.ForeColor = Color.White;
-            lblBemVindo.Location = new Point(210, 0);
+            lblBemVindo.Location = new Point(221, -1);
             lblBemVindo.Name = "lblBemVindo";
             lblBemVindo.Size = new Size(317, 42);
             lblBemVindo.TabIndex = 0;
@@ -71,9 +76,10 @@
             // lblUserName
             // 
             lblUserName.AutoSize = true;
+            lblUserName.BackColor = Color.Transparent;
             lblUserName.Font = new Font("Yu Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUserName.ForeColor = Color.FromArgb(255, 255, 192);
-            lblUserName.Location = new Point(238, 32);
+            lblUserName.Location = new Point(250, 35);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(252, 61);
             lblUserName.TabIndex = 1;
@@ -185,23 +191,23 @@
             btnNewPass.UseVisualStyleBackColor = true;
             btnNewPass.Click += btnNewPass_Click;
             // 
-            // groupBox1
+            // gbxUserInfo
             // 
-            groupBox1.Controls.Add(lblAnjo);
-            groupBox1.Controls.Add(lblAnjoTitle);
-            groupBox1.Controls.Add(lblTelefone);
-            groupBox1.Controls.Add(lblUsuario);
-            groupBox1.Controls.Add(lblTelefoneTitle);
-            groupBox1.Controls.Add(lblUsuarioTitle);
-            groupBox1.Controls.Add(lblNome);
-            groupBox1.Controls.Add(lblNomeTitle);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(436, 206);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(243, 138);
-            groupBox1.TabIndex = 9;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Informações do Usuário";
+            gbxUserInfo.Controls.Add(lblAnjo);
+            gbxUserInfo.Controls.Add(lblAnjoTitle);
+            gbxUserInfo.Controls.Add(lblTelefone);
+            gbxUserInfo.Controls.Add(lblUsuario);
+            gbxUserInfo.Controls.Add(lblTelefoneTitle);
+            gbxUserInfo.Controls.Add(lblUsuarioTitle);
+            gbxUserInfo.Controls.Add(lblNome);
+            gbxUserInfo.Controls.Add(lblNomeTitle);
+            gbxUserInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gbxUserInfo.Location = new Point(436, 206);
+            gbxUserInfo.Name = "gbxUserInfo";
+            gbxUserInfo.Size = new Size(243, 138);
+            gbxUserInfo.TabIndex = 9;
+            gbxUserInfo.TabStop = false;
+            gbxUserInfo.Text = "Informações do Usuário";
             // 
             // lblAnjo
             // 
@@ -227,17 +233,17 @@
             // 
             lblTelefone.AutoSize = true;
             lblTelefone.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTelefone.Location = new Point(24, 102);
+            lblTelefone.Location = new Point(37, 102);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(73, 15);
+            lblTelefone.Size = new Size(43, 15);
             lblTelefone.TabIndex = 12;
-            lblTelefone.Text = "16996305811";
+            lblTelefone.Text = "123456";
             // 
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUsuario.Location = new Point(158, 48);
+            lblUsuario.Location = new Point(161, 48);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(47, 15);
             lblUsuario.TabIndex = 10;
@@ -267,11 +273,11 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNome.Location = new Point(29, 48);
+            lblNome.Location = new Point(37, 48);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(62, 15);
+            lblNome.Size = new Size(45, 15);
             lblNome.TabIndex = 2;
-            lblNome.Text = "flavin silva";
+            lblNome.Text = "samuel";
             // 
             // lblNomeTitle
             // 
@@ -316,25 +322,49 @@
             tbxCatName.Size = new Size(144, 23);
             tbxCatName.TabIndex = 12;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.nuvemzinha;
+            pictureBox1.Location = new Point(473, 136);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(351, 173);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.nuvemzinha;
+            pictureBox2.Location = new Point(-143, -93);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(387, 189);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(691, 356);
+            Controls.Add(lblUserName);
+            Controls.Add(lblBemVindo);
             Controls.Add(tbxCatName);
             Controls.Add(lblCategorias);
             Controls.Add(btnAgenda);
-            Controls.Add(groupBox1);
+            Controls.Add(gbxUserInfo);
             Controls.Add(btnNewPass);
             Controls.Add(gbxSecurity);
+            Controls.Add(pictureBox1);
             Controls.Add(btnRefresh);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
             Controls.Add(btnDelete);
             Controls.Add(dgvCat);
-            Controls.Add(lblUserName);
-            Controls.Add(lblBemVindo);
+            Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmPrincipal";
@@ -344,8 +374,10 @@
             ((System.ComponentModel.ISupportInitialize)dgvCat).EndInit();
             gbxSecurity.ResumeLayout(false);
             gbxSecurity.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            gbxUserInfo.ResumeLayout(false);
+            gbxUserInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -363,7 +395,7 @@
         private Label txtNovaSenha;
         private TextBox tbxNewPass;
         private Button btnNewPass;
-        private GroupBox groupBox1;
+        private GroupBox gbxUserInfo;
         private Label lblTelefoneTitle;
         private Label lblUsuarioTitle;
         private Label lblNome;
@@ -375,5 +407,7 @@
         private Button btnAgenda;
         private Label lblCategorias;
         private TextBox tbxCatName;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

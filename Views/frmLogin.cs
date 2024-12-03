@@ -33,10 +33,10 @@ namespace Projeto_Agenda_Angelical
 
             if(userController.UserExists(usuario, senha) == true)
             {
+                this.Hide();
                 frmPrincipal frmPrincipal = new frmPrincipal();
                 frmPrincipal.ShowDialog();
 
-                this.Close();
             }
             else
             {
@@ -46,9 +46,9 @@ namespace Projeto_Agenda_Angelical
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            frmRegister frmRegister = new frmRegister();
-            frmRegister.ShowDialog();
             this.Hide();
+            frmRegister frmRegister = new frmRegister();
+            frmRegister.Show();
         }
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)

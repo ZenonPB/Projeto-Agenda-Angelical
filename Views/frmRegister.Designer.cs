@@ -59,7 +59,7 @@
             tbxUser.Name = "tbxUser";
             tbxUser.PlaceholderText = "Usuário";
             tbxUser.Size = new Size(373, 23);
-            tbxUser.TabIndex = 3;
+            tbxUser.TabIndex = 2;
             tbxUser.TextChanged += tbxUser_TextChanged;
             // 
             // cbxAngels
@@ -69,7 +69,7 @@
             cbxAngels.Location = new Point(68, 70);
             cbxAngels.Name = "cbxAngels";
             cbxAngels.Size = new Size(373, 23);
-            cbxAngels.TabIndex = 4;
+            cbxAngels.TabIndex = 8;
             cbxAngels.SelectedIndexChanged += cbxAngels_SelectedIndexChanged;
             // 
             // lblAnjoGuarda
@@ -90,7 +90,7 @@
             tbxPassword.PasswordChar = '*';
             tbxPassword.PlaceholderText = "Senha";
             tbxPassword.Size = new Size(373, 23);
-            tbxPassword.TabIndex = 7;
+            tbxPassword.TabIndex = 4;
             tbxPassword.UseSystemPasswordChar = true;
             tbxPassword.TextChanged += tbxPassword_TextChanged;
             // 
@@ -100,7 +100,7 @@
             tbxPhone.Name = "tbxPhone";
             tbxPhone.PlaceholderText = "Telefone";
             tbxPhone.Size = new Size(373, 23);
-            tbxPhone.TabIndex = 8;
+            tbxPhone.TabIndex = 3;
             tbxPhone.TextChanged += tbxPhone_TextChanged;
             // 
             // tbxConfirm
@@ -110,7 +110,7 @@
             tbxConfirm.PasswordChar = '*';
             tbxConfirm.PlaceholderText = "Confirme a Senha";
             tbxConfirm.Size = new Size(373, 23);
-            tbxConfirm.TabIndex = 9;
+            tbxConfirm.TabIndex = 5;
             tbxConfirm.UseSystemPasswordChar = true;
             tbxConfirm.TextChanged += tbxConfirm_TextChanged;
             // 
@@ -123,7 +123,7 @@
             btnRegister.Location = new Point(68, 259);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(183, 43);
-            btnRegister.TabIndex = 10;
+            btnRegister.TabIndex = 6;
             btnRegister.Text = "Fazer a Passagem";
             btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
@@ -136,7 +136,7 @@
             btnBack.Location = new Point(258, 259);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(183, 43);
-            btnBack.TabIndex = 11;
+            btnBack.TabIndex = 7;
             btnBack.Text = "Voltar";
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
@@ -161,7 +161,7 @@
             tbxName.Name = "tbxName";
             tbxName.PlaceholderText = "Nome";
             tbxName.Size = new Size(373, 23);
-            tbxName.TabIndex = 10;
+            tbxName.TabIndex = 1;
             // 
             // frmRegister
             // 
