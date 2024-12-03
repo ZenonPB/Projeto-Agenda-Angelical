@@ -21,19 +21,11 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdCreateUser = new MySqlCommand(
-                   $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                      GRANT SELECT ON db_agenda.tb_categorias TO '{usuario}'@'%';",
-                   conexao
-                );
-
+                MySqlCommand cmdCreateUser = new MySqlCommand($@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; GRANT SELECT ON db_agenda.tb_categorias TO '{usuario}'@'%';", conexao);
                 cmdCreateUser.ExecuteNonQuery();
 
-                // deu certo oba
                 return true;
             }
-
-            // nao da crash no programa
             catch (Exception)
             {
                 return false;
@@ -46,7 +38,7 @@ namespace Projeto_Agenda_Angelical.Controller
         }
 
         // ===================================== CRIAR USUARIO NA TABELA DA DB =======================================
-        public bool CreateUser(string anjo, string usuario, string senha, string telefone)
+        public bool CreateUser(string anjo, string nome, string usuario, string senha, string telefone)
         {
             MySqlConnection conexao = ConexaoDB.Connection();
 
@@ -54,28 +46,24 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdInsertInto = new MySqlCommand(
-                    "INSERT INTO tb_usuarios VALUES (@anjo, @usuario, @telefone, @senha);",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand("INSERT INTO tb_usuarios VALUES (@anjo, @nome, @usuario, @telefone, @senha);", conexao);
 
-                cmdInsertInto.Parameters.AddWithValue("@anjo", anjo);
+                command.Parameters.AddWithValue("@anjo", anjo);
 
-                cmdInsertInto.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@nome", nome);
 
-                cmdInsertInto.Parameters.AddWithValue("@telefone", telefone);
+                command.Parameters.AddWithValue("@usuario", usuario);
 
-                cmdInsertInto.Parameters.AddWithValue("@senha", senha);
+                command.Parameters.AddWithValue("@telefone", telefone);
+
+                command.Parameters.AddWithValue("@senha", senha);
 
                 int rowsAffected = 0;
 
-                // armazena quantas linhas foi afetada 
-                rowsAffected = cmdInsertInto.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
-                
                 if (rowsAffected > 0)
                 {
-                    // cria o usuario
                     if (this.CreateUserDB(usuario, senha))
                     {
                         return true;
@@ -83,21 +71,18 @@ namespace Projeto_Agenda_Angelical.Controller
 
                     else
                     {
-                        // deleta o usuario que deu errado, pra n ficar um "fantasma"
                         this.DeleteUser(usuario);
 
                         return false;
                     }
                 }
 
-                // Erro
                 else
                 {
                     return false;
                 }
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
@@ -119,18 +104,13 @@ namespace Projeto_Agenda_Angelical.Controller
                 conexao.Open();
 
                 // o comando pra deletar o usuario, seguido do padrão de usuario: USUARIO@xxxx;
-                MySqlCommand cmdDeleteUserDB = new MySqlCommand(
-                    $"DROP USER '{usuario}'@'%';",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand($"DROP USER '{usuario}'@'%';", conexao);
 
-                cmdDeleteUserDB.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
-                // deu tudo certo amem
                 return true;
             }
 
-            // Evitando Crash
             catch (Exception)
             {
                 return false;
@@ -151,20 +131,15 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdDeleteUser = new MySqlCommand(
-                    "DELETE FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario;",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand("DELETE FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario;", conexao);
 
-                cmdDeleteUser.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@usuario", usuario);
 
                 if (this.DeleteUserDB(usuario))
                 {
-                    cmdDeleteUser.ExecuteNonQuery();
-
+                    command.ExecuteNonQuery();
                     return true;
                 }
-
                 else
                 {
                     return false;
@@ -192,14 +167,10 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdModifySenhaDB = new MySqlCommand(
-                    $"ALTER USER '{usuario}'@'%' IDENTIFIED BY '{novaSenha}'",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand($"ALTER USER '{usuario}'@'%' IDENTIFIED BY '{novaSenha}'", conexao);
 
-                cmdModifySenhaDB.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
-                // Sucesso, senha alterada na DB
                 return true;
             }
 
@@ -223,28 +194,23 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdModifySenha = new MySqlCommand(
-                    "UPDATE tb_usuarios SET tb_usuarios.senha = @nova_senha WHERE tb_usuarios.usuario = @usuario",
-                    conexao
-                );
+                MySqlCommand command = new MySqlCommand(
+                    "UPDATE tb_usuarios SET tb_usuarios.senha = @nova_senha WHERE tb_usuarios.usuario = @usuario",conexao);
 
-                cmdModifySenha.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@usuario", usuario);
 
-                cmdModifySenha.Parameters.AddWithValue("@nova_senha", novaSenha);
+                command.Parameters.AddWithValue("@nova_senha", novaSenha);
 
                 int rowsAffected = 0;
 
-                rowsAffected = cmdModifySenha.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
-                // Sucesso, senha alterada
                 if (rowsAffected > 0)
                 {
                     this.ModifySenhaDB(usuario, novaSenha);
 
                     return true;
                 }
-
-                // Erro
                 else
                 {
                     return false;
@@ -271,15 +237,13 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand cmdVerificacao = new MySqlCommand(
-                    "SELECT usuario, nome, senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;", conexao
-                );
+                MySqlCommand command = new MySqlCommand("SELECT usuario, nome, senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;", conexao);
 
-                cmdVerificacao.Parameters.AddWithValue("@usuario", usuario);
+                command.Parameters.AddWithValue("@usuario", usuario);
 
-                cmdVerificacao.Parameters.AddWithValue("@senha", senha);
+                command.Parameters.AddWithValue("@senha", senha);
                 
-                MySqlDataReader resultado = cmdVerificacao.ExecuteReader();
+                MySqlDataReader resultado = command.ExecuteReader();
 
                 if (resultado.Read())
                 {
@@ -311,6 +275,5 @@ namespace Projeto_Agenda_Angelical.Controller
                 conexao.Close();
             }
         }
-
     }
 }

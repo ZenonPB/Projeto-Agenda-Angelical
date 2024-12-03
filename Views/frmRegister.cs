@@ -68,6 +68,8 @@ namespace Projeto_Agenda_Angelical.Views
 
                 MessageBox.Show("Você agora está cadastrado no Paraíso!", "Bem-Vindo ao Céu");
 
+                frmLogin frmLogin = new frmLogin();
+                frmLogin.ShowDialog();
             }
 
             else

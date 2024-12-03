@@ -40,8 +40,12 @@
             lblPhone = new Label();
             tbxName = new TextBox();
             lblContactName = new Label();
+            imgNuvem = new PictureBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvContato).BeginInit();
             gbxContactInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgNuvem).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dgvContato
@@ -135,6 +139,7 @@
             textBox1.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(6, 123);
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "16996305811";
             textBox1.Size = new Size(187, 27);
             textBox1.TabIndex = 3;
             // 
@@ -167,6 +172,28 @@
             lblContactName.TabIndex = 2;
             lblContactName.Text = "Nome do Contato";
             // 
+            // imgNuvem
+            // 
+            imgNuvem.BackColor = Color.Transparent;
+            imgNuvem.Image = Properties.Resources.nuvemzinha;
+            imgNuvem.Location = new Point(107, 288);
+            imgNuvem.Name = "imgNuvem";
+            imgNuvem.Size = new Size(410, 210);
+            imgNuvem.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNuvem.TabIndex = 8;
+            imgNuvem.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.nuvemzinha;
+            pictureBox1.Location = new Point(-52, -15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(410, 210);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -175,6 +202,8 @@
             ClientSize = new Size(464, 450);
             Controls.Add(gbxContactInfo);
             Controls.Add(dgvContato);
+            Controls.Add(imgNuvem);
+            Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmAgenda";
@@ -183,6 +212,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvContato).EndInit();
             gbxContactInfo.ResumeLayout(false);
             gbxContactInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imgNuvem).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -199,5 +230,7 @@
         private Button btnDelete;
         private Button btnAdd;
         private ComboBox cbxCategoria;
+        private PictureBox imgNuvem;
+        private PictureBox pictureBox1;
     }
 }

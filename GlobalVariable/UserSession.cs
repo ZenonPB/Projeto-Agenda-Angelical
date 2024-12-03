@@ -9,12 +9,12 @@ namespace Projeto_Agenda_Angelical.GlobalVariable
 {
     static public class UserSession
     {
-        static private string _nome = null;
-        static private string _senha = null;
-        static private string _usuario = null;
-        static private string _telefone = null;
-        static private string _anjoGuarda = null;
-        static private MySqlConnection _conexao = null;
+        static private string ?_nome = null;
+        static private string ?_senha = null;
+        static private string ?_usuario = null;
+        static private string ?_telefone = null;
+        static private string ?_anjoGuarda = null;
+        static private MySqlConnection ?_conexao = null;
 
         static public string Usuario
         {
