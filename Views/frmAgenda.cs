@@ -30,11 +30,18 @@ namespace Projeto_Agenda_Angelical.Views
             DataTable dataTable = categoriaController.GetCategorias();
             cbxCategoria.DataSource = dataTable;
             cbxCategoria.DisplayMember = "categoria";
+            cbxCategoria.ValueMember = "ID";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // colocando as informações do usuario nas variaveis para adicionar
+            string contatoNome = tbxName.Text;
+            string telefone = tbxPhone.Text;
+         //   int categoriaId = 
 
+  //          ContatoController contatoController = new ContatoController();
+    //        if(contatoController.CreateContato(contatoNome, telefone, ))
         }
     }
 }

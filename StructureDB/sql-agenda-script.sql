@@ -20,29 +20,20 @@ CREATE TABLE IF NOT EXISTS tb_usuarios (
 CREATE TABLE IF NOT EXISTS tb_contatos (
     id_contato INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    endereco VARCHAR(50),
-    email VARCHAR(50) NOT NULL,
+    telefone VARCHAR(50) NOT NULL,
+    categoria VARCHAR(100) NOT NULL,
     usuario VARCHAR(50),
 
     CONSTRAINT fk_usuarios_contatos
     FOREIGN KEY (usuario)
     REFERENCES tb_usuarios (usuario)
     ON DELETE CASCADE
+
+    CONSTRAINT fk_categorias_contatos
+    FOREIGN KEY (categoria)
+    REFERENCES tb_categorias (categoria)
 );
 
--- telefone
-
-CREATE TABLE IF NOT EXISTS tb_telefones (
-    id_telefone INT AUTO_INCREMENT PRIMARY KEY,
-    telefone VARCHAR(15) NOT NULL,
-    descricao VARCHAR(250),
-    id_contato INT NOT NULL,
-
-    CONSTRAINT fk_contatos_telefones
-    FOREIGN KEY (id_contato)
-    REFERENCES tb_contatos (id_contato)
-    ON DELETE CASCADE
-);
 
 -- categorias
 
@@ -57,23 +48,6 @@ CREATE TABLE IF NOT EXISTS tb_categorias (
     ON DELETE CASCADE
 );
 
--- afinidades (por conta de contato e categorias ser n:n)
-
-CREATE TABLE IF NOT EXISTS tb_afinidades (
-    id_tema INT AUTO_INCREMENT PRIMARY KEY,
-    id_contato INT NOT NULL,
-    id_categoria INT NOT NULL,
-
-    CONSTRAINT fk_contatos_afinidades
-    FOREIGN KEY (id_contato)
-    REFERENCES tb_contatos(id_contato)
-    ON DELETE CASCADE,
-
-    CONSTRAINT fk_categorias_afinidades
-    FOREIGN KEY (id_categoria)
-    REFERENCES tb_categorias(id_categoria)
-    ON DELETE CASCADE
-);
 
 -- logs
 

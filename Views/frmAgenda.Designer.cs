@@ -36,7 +36,7 @@
             btnAdd = new Button();
             cbxCategoria = new ComboBox();
             lblCategoria = new Label();
-            textBox1 = new TextBox();
+            tbxPhone = new TextBox();
             lblPhone = new Label();
             tbxName = new TextBox();
             lblContactName = new Label();
@@ -64,7 +64,7 @@
             gbxContactInfo.Controls.Add(btnAdd);
             gbxContactInfo.Controls.Add(cbxCategoria);
             gbxContactInfo.Controls.Add(lblCategoria);
-            gbxContactInfo.Controls.Add(textBox1);
+            gbxContactInfo.Controls.Add(tbxPhone);
             gbxContactInfo.Controls.Add(lblPhone);
             gbxContactInfo.Controls.Add(tbxName);
             gbxContactInfo.Controls.Add(lblContactName);
@@ -134,14 +134,14 @@
             lblCategoria.TabIndex = 5;
             lblCategoria.Text = "Categoria";
             // 
-            // textBox1
+            // tbxPhone
             // 
-            textBox1.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(6, 123);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "16996305811";
-            textBox1.Size = new Size(187, 27);
-            textBox1.TabIndex = 3;
+            tbxPhone.Font = new Font("Yu Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxPhone.Location = new Point(6, 123);
+            tbxPhone.Name = "tbxPhone";
+            tbxPhone.PlaceholderText = "16996305811";
+            tbxPhone.Size = new Size(187, 27);
+            tbxPhone.TabIndex = 3;
             // 
             // lblPhone
             // 
@@ -224,7 +224,7 @@
         private Label lblContactName;
         private TextBox tbxName;
         private Label lblCategoria;
-        private TextBox textBox1;
+        private TextBox tbxPhone;
         private Label lblPhone;
         private Button button3;
         private Button btnDelete;

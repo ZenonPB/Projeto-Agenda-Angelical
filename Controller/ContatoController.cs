@@ -14,23 +14,23 @@ namespace Projeto_Agenda_Angelical.Controller
     internal class ContatoController
     {
         // ===================================== CRIA O CONTATO E COLOCA NA TABELA =======================================
-        public bool CreateContato(string nome_contato, string telefone, string categoria)
+        public bool CreateContato(string nome_contato, string telefone, int id_categoria)
         {
             MySqlConnection conexao = ConexaoDB.Connection(UserSession.Usuario, UserSession.Senha);
 
             conexao.Open();
             try
             {
-                MySqlCommand cmdInsertInto = new MySqlCommand(
-                    "INSERT INTO tb_contatos (nome) VALUES (@nome_contato);", conexao
-                );
+                MySqlCommand command = new MySqlCommand(
+                    "INSERT INTO tb_contatos (nome, telefone, categoria) VALUES (@nome_contato, @telefone, @id_categoria);", conexao);
 
-                cmdInsertInto.Parameters.AddWithValue("@nome_contato", nome_contato);
+                command.Parameters.AddWithValue("@nome_contato", nome_contato);
+                command.Parameters.AddWithValue("@telefone", telefone);
+                command.Parameters.AddWithValue("@id_categoria", id_categoria);
 
                 int rowsAffected = 0;
 
-                // mostra em quantas linhas foi afetada
-                rowsAffected = cmdInsertInto.ExecuteNonQuery();
+                rowsAffected = command.ExecuteNonQuery();
 
 
                 if (rowsAffected > 0)
@@ -105,8 +105,7 @@ namespace Projeto_Agenda_Angelical.Controller
             try
             {
                 MySqlCommand cmdUpdateNome = new MySqlCommand(
-                    "UPDATE tb_contatos.nome = @novo_nome ON tb_contatos WHERE tb_contatos.id_contato = @id_contato", conexao
-                );
+                    "UPDATE tb_contatos SET nome = @novo_nome WHERE id_contato = @id_contato", conexao);
 
                 cmdUpdateNome.Parameters.AddWithValue("@novo_nome", novoNome);
 
@@ -150,8 +149,7 @@ namespace Projeto_Agenda_Angelical.Controller
             {
 
                 MySqlDataAdapter adpGetContatos = new MySqlDataAdapter(
-                    "SELECT id_contato AS 'ID', contato AS 'Contato' FROM tb_contatos WHERE tb_contatos.usuario = SUBSTRING_INDEX(USER(), '@', 1);", conexao
-                );
+                    "SELECT id_contato AS 'ID', nome AS 'Nome', telefone AS 'Telefone' FROM tb_contatos WHERE tb_contatos.usuario = SUBSTRING_INDEX(USER(), '@', 1);", conexao);
 
                 // cria uma tabela vazia
                 DataTable tabela = new DataTable();
