@@ -237,7 +237,7 @@ namespace Projeto_Agenda_Angelical.Controller
             {
                 conexao.Open();
 
-                MySqlCommand command = new MySqlCommand("SELECT usuario, nome, senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;", conexao);
+                MySqlCommand command = new MySqlCommand("SELECT anjo, nome, usuario, telefone, senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario AND BINARY tb_usuarios.senha = @senha;", conexao);
 
                 command.Parameters.AddWithValue("@usuario", usuario);
 
@@ -245,14 +245,14 @@ namespace Projeto_Agenda_Angelical.Controller
                 
                 MySqlDataReader resultado = command.ExecuteReader();
 
-                if (resultado.Read())
+                if (resultado.Read() == true)
                 {
                     // preencher a user session com as infos do usuario
                     UserSession.Usuario = resultado.GetString("usuario");
                     UserSession.Nome = resultado.GetString("nome");
                     UserSession.Senha = resultado.GetString("senha");
                     UserSession.Telefone = resultado.GetString("telefone");
-                    UserSession.AnjoGuarda = resultado.GetString("nome_anjo");
+                    UserSession.AnjoGuarda = resultado.GetString("anjo");
 
                     conexao.Close();
                     return true;

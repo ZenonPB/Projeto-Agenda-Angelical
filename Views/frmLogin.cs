@@ -31,7 +31,7 @@ namespace Projeto_Agenda_Angelical
 
             UserController userController = new UserController();
 
-            if(userController.UserExists(usuario, senha))
+            if(userController.UserExists(usuario, senha) == true)
             {
                 frmPrincipal frmPrincipal = new frmPrincipal();
                 frmPrincipal.ShowDialog();
